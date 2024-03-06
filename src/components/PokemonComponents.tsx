@@ -53,9 +53,9 @@ export function PokemonTypeSelection({ selectedType, selectType } : PokemonTypeS
 }
 
 export function FilterablePokedexTable({ pokemonArray } : { pokemonArray: PokemonInterface[] }) {
-  const [pokemonType, setPokemonType] = useState<string|undefined>("water");
+  const [pokemonType, setPokemonType] = useState<string|undefined>("");
 
-  const results = pokemonType ? pokemonArray.filter(pokemon => pokemon.types.includes(pokemonType)) : [];
+  const results = pokemonType ? pokemonArray.filter(pokemon => pokemon.types.includes(pokemonType.toLowerCase())) : [];
 
   return (
     <>
