@@ -16,14 +16,14 @@ type PokemonTypeSelectionProps = {
 }
 
 export default function PokemonRow({ pokemon } : { pokemon: Pokemon}) {
-  const pokemonTypes = pokemon.types.map((pokemonType, idx) => <span key={idx} className={classnames('capitalize')}>{pokemonType} </span>);
+  const pokemonTypes = pokemon.types.map((pokemonType, idx) => <span key={idx} className="capitalize">{pokemonType} </span>);
 
   return (
-    <div key={pokemon.id} className={classnames("bg-slate")}>
-      <div>Name: {pokemon.name}</div>
-      <div>ID: {pokemon.id}</div>
-      <div>Types: {pokemonTypes}</div>
-      <img src={pokemon.sprite} alt="image of a pokemon" width={220} height={229}/> 
+    <div key={pokemon.id} className="mt-10 bg-white p-5 rounded text-black">
+      <div><span className="font-bold">Name:</span> {pokemon.name}</div>
+      <div><span className="font-bold">ID: </span>{pokemon.id}</div>
+      <div><span className="font-bold">Types:</span> {pokemonTypes}</div>
+      <img className="pt-5" src={pokemon.sprite} alt="image of a pokemon" width={220} height={229}/> 
     </div>
   );
 }

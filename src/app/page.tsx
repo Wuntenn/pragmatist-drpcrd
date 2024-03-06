@@ -1,4 +1,4 @@
-import PokemonRow, { FilterablePokedexTable, PokedexTable, Pokemon } from "../../components/PokemonRow";
+import PokemonRow, { FilterablePokedexTable, PokedexTable, Pokemon } from "../components/PokemonRow";
 
 export default function Home() {
   const allPokemonData: Pokemon[] = [{
@@ -34,8 +34,7 @@ export default function Home() {
   }];
 
   return (
-    <main className="flex flex-col items-center justify-between p-24">
-      Daron lets get this
+    <main className="flex flex-col items-center justify-between p-20">
       <FilterablePokedexTable pokemonArray={allPokemonData} />
     </main>
   );
