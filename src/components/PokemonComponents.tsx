@@ -3,7 +3,7 @@
 import { useState } from "react";
 import classnames from "classnames"; 
 
-export interface Pokemon {   
+export interface PokemonInterface {   
   id: number,
   name: string,
   types: string[],
@@ -15,7 +15,7 @@ type PokemonTypeSelectionProps = {
   selectType: (type: string | undefined ) => void;
 }
 
-export default function PokemonRow({ pokemon } : { pokemon: Pokemon}) {
+export default function PokemonRow({ pokemon } : { pokemon: PokemonInterface}) {
   const pokemonTypes = pokemon.types.map((pokemonType, idx) => <span key={idx} className="capitalize">{pokemonType} </span>);
 
   return (
@@ -28,7 +28,7 @@ export default function PokemonRow({ pokemon } : { pokemon: Pokemon}) {
   );
 }
 
-export function PokedexTable({ pokemonArray } : { pokemonArray: Pokemon[] | undefined }) {
+export function PokedexTable({ pokemonArray } : { pokemonArray: PokemonInterface[] | undefined }) {
   const pokemonCards = pokemonArray?.map(pokemonData => 
     <PokemonRow key={pokemonData.id} pokemon={pokemonData}/>
   );
@@ -52,7 +52,7 @@ export function PokemonTypeSelection({ selectedType, selectType } : PokemonTypeS
   );
 }
 
-export function FilterablePokedexTable({ pokemonArray } : { pokemonArray: Pokemon[] }) {
+export function FilterablePokedexTable({ pokemonArray } : { pokemonArray: PokemonInterface[] }) {
   const [pokemonType, setPokemonType] = useState<string|undefined>("water");
 
   const results = pokemonType ? pokemonArray.filter(pokemon => pokemon.types.includes(pokemonType)) : [];
